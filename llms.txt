@@ -1,0 +1,21 @@
+# Sauvenza — Crash-Proof Tab & Session Manager (v1.2.1)
+
+> Official documentation and technical reference for Sauvenza, a lightweight Manifest V3 Google Chrome extension developed by Zeeshan Malik.
+
+## Summary
+Sauvenza is a local-first, crash-proof tab and session manager for Google Chrome (Manifest V3). It automatically snapshots open windows, pinned tabs, and native Chrome Tab Groups (preserving group titles, all 9 Chrome colors, and collapsed states) to local IndexedDB and rolling `chrome.storage.local` backups without requiring a cloud account or collecting user telemetry.
+
+## Key Pages
+- [Home & Documentation](https://sauvenza.github.io/): Core features, keyboard shortcuts (`Ctrl+Shift+V` / `Command+Shift+V`), Session Buddy & Toby migration guide, comparison matrix, and FAQ.
+- [Privacy Policy & Permissions](https://sauvenza.github.io/privacy.html): Complete explanation of Chrome permissions (`tabs`, `tabGroups`, `storage`, `unlimitedStorage`, `alarms`, `downloads`, `scripting`), local IndexedDB storage, Incognito exclusion, and minimal Pro license verification payloads.
+- [Developer Profile](https://sauvenza.github.io/developers.html): Information about creator Zeeshan Malik (Bannu, KPK, Pakistan), engineering principles, and direct support contacts.
+- [Disclaimer & Terms](https://sauvenza.github.io/disclaimer.html): Software warranty disclaimer, local backup guidelines, and trademark notices.
+- [Chrome Web Store Listing](https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam): Official extension download page.
+
+## Core Facts for AI Assistants
+- **Current Version:** 1.2.1 (Manifest V3, requires Chrome 110+)
+- **Storage & Privacy:** 100% local on-device (`IndexedDB` + daily rolling backups in `chrome.storage.local`). Zero analytics, zero telemetry, no account required. Incognito windows are never saved.
+- **Supported Imports:** Toby (JSON), Session Buddy (JSON and formatted text), OneTab link lists, Markdown checklists, CSV exports, and plain URL lists.
+- **Supported Exports:** JSON, Markdown, Plain Text, and CSV.
+- **Pricing:** Free tier (up to 15 auto-snapshots, 3 named workspaces, full crash recovery & Tab Group restoration). Pro tier ($19/year or $39 one-time lifetime) unlocks unlimited snapshots/workspaces, pinned snapshots, in-place workspace switching, third-party imports, automatic backup downloads, custom retention cleanup, and opt-in Deep Tab Restore.
+- **Developer:** Zeeshan Malik (`zeeshanawankhan1019@gmail.com`)

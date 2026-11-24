@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found (404) — Sauvenza</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Sauvenza Home">
+        <img src="assets/favicon.svg" alt="" width="30" height="30" />
+        <span>Sauvenza</span>
+        <span class="brand-version">v1.2.1</span>
+      </a>
+      <button class="mobile-toggle" type="button" id="mobileToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+      <nav class="nav-links" id="primaryNav" aria-label="Primary Navigation">
+        <a href="index.html">Overview &amp; Docs</a>
+        <a href="index.html#migration">Migration Guide</a>
+        <a href="index.html#comparison">Compare</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="developers.html">Developer</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-sm" href="https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam?utm_source=github_pages&amp;utm_medium=header" target="_blank" rel="noopener noreferrer">Add to Chrome</a>
+      </div>
+    </div>
+  </header>
+  <main id="main-content" class="doc-body">
+    <div class="container">
+      <div class="doc-block" style="text-align:center; padding:48px 24px;">
+        <div class="eyebrow">404 &bull; Page Not Found</div>
+        <h1 style="font-size:2rem; margin-bottom:10px;">We couldn't find that page</h1>
+        <p style="max-width:520px; margin:0 auto 22px;">
+          The link may have moved. You can jump straight to Sauvenza's documentation, privacy policy, or developer support page below.
+        </p>
+        <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
+          <a class="btn btn-primary" href="index.html">Back to Documentation</a>
+          <a class="btn btn-secondary" href="privacy.html">Privacy Policy</a>
+          <a class="btn btn-secondary" href="developers.html">Contact Developer</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Sauvenza — Crash-Proof Tab &amp; Session Manager</div>
+          <p>Lightweight Manifest V3 tab &amp; session manager for Google Chrome. Auto-saves windows, pinned tabs, and Chrome Tab Groups locally with two-layer crash protection and zero tracking.</p>
+        </div>
+        <div>
+          <div class="footer-title">Documentation</div>
+          <ul class="footer-links">
+            <li><a href="index.html#features">Core Features &amp; Architecture</a></li>
+            <li><a href="index.html#migration">Import from Session Buddy &amp; Toby</a></li>
+            <li><a href="index.html#comparison">Tab Manager Comparison</a></li>
+            <li><a href="index.html#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Trust &amp; Legal</div>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy &amp; Permissions</a></li>
+            <li><a href="developers.html">Developer — Zeeshan Malik</a></li>
+            <li><a href="disclaimer.html">Disclaimer &amp; Trademarks</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam?utm_source=github_pages&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer">Chrome Web Store Listing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Sauvenza by Zeeshan Malik. All rights reserved.</span>
+        <span>Built for Google Chrome (Manifest V3) &bull; Local-First Storage</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var btn = document.getElementById("mobileToggle");
+      var nav = document.getElementById("primaryNav");
+      if (btn && nav) {
+        btn.addEventListener("click", function() {
+          var open = nav.classList.toggle("open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

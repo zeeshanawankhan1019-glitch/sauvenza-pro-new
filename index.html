@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sauvenza — Crash-Proof Chrome Tab &amp; Session Manager (Official Docs &amp; Guide)</title>
+  <meta name="description" content="Official documentation for Sauvenza v1.2.1: a lightweight, local-first Manifest V3 Chrome tab &amp; session manager with automatic crash recovery, native Chrome Tab Group restoration, named workspaces, and one-click Session Buddy &amp; Toby import." />
+  <meta name="keywords" content="Sauvenza, Chrome tab manager, crash-proof session manager, Session Buddy alternative, Toby alternative, save Chrome tab groups, local tab manager Manifest V3, restore closed tabs after crash" />
+  <meta name="author" content="Zeeshan Malik" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://sauvenza.github.io/" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/sauvenza-icon.png" />
+
+  <!-- Open Graph & Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sauvenza" />
+  <meta property="og:title" content="Sauvenza — Crash-Proof Chrome Tab &amp; Session Manager" />
+  <meta property="og:description" content="Auto-save windows, pinned tabs &amp; Chrome Tab Groups locally. Instant crash recovery, named workspaces, and Session Buddy / Toby import with zero tracking." />
+  <meta property="og:url" content="https://sauvenza.github.io/" />
+  <meta property="og:image" content="https://sauvenza.github.io/assets/sauvenza-icon.png" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sauvenza — Crash-Proof Chrome Tab &amp; Session Manager" />
+  <meta name="twitter:description" content="Local-first Manifest V3 tab &amp; session manager with native Chrome Tab Group restoration, two-layer crash protection, and zero analytics." />
+  <meta name="twitter:image" content="https://sauvenza.github.io/assets/sauvenza-icon.png" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured Data (SEO + Generative Engine Optimization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://sauvenza.github.io/#software",
+        "name": "Sauvenza — Crash-Proof Tab & Session Manager",
+        "alternateName": "Sauvenza",
+        "applicationCategory": "BrowserApplication",
+        "applicationSubCategory": "Productivity",
+        "operatingSystem": "Google Chrome, Chromium (Windows, macOS, Linux, ChromeOS)",
+        "browserRequirements": "Requires Google Chrome 110 or newer (Manifest V3)",
+        "softwareVersion": "1.2.1",
+        "url": "https://sauvenza.github.io/",
+        "downloadUrl": "https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam",
+        "screenshot": "https://sauvenza.github.io/assets/sauvenza-icon.png",
+        "description": "Sauvenza is a lightweight, local-first Manifest V3 tab and session manager for Google Chrome. It automatically snapshots open windows, pinned tabs, and native Chrome Tab Groups (preserving names, colors, and collapsed states) to local IndexedDB and rolling storage backups without cloud accounts or tracking.",
+        "featureList": [
+          "Automatic background session snapshots every minute",
+          "One-click post-crash session recovery preserving Chrome Tab Group names, colors, and collapsed states",
+          "Named workspaces with in-place workspace switching",
+          "Instant keyboard-driven cross-window search (Ctrl+Shift+V / Command+Shift+V)",
+          "Two-layer local storage protection (IndexedDB plus daily rolling chrome.storage.local backups and integrity checks)",
+          "One-click import from Session Buddy (JSON/Text), Toby (JSON), OneTab, Markdown, CSV, and URL lists",
+          "Export to JSON, Markdown, Plain Text, and CSV",
+          "Optional Pro Deep Tab Restore for preserving unsaved web form inputs locally"
+        ],
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Free Tier",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Includes up to 15 auto-snapshots, 3 named workspaces, full crash recovery, Tab Group restoration, and instant tab search."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro Annual",
+            "price": "19",
+            "priceCurrency": "USD",
+            "description": "Unlimited snapshots and workspaces, pinned snapshots, in-place workspace switching, third-party imports, automatic file backups, and opt-in Deep Tab Restore."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro Lifetime",
+            "price": "39",
+            "priceCurrency": "USD",
+            "description": "One-time payment for permanent Pro access on one browser profile."
+          }
+        ],
+        "author": {
+          "@type": "Person",
+          "@id": "https://sauvenza.github.io/developers.html#zeeshan-malik",
+          "name": "Zeeshan Malik",
+          "url": "https://sauvenza.github.io/developers.html"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://sauvenza.github.io/#migration-howto",
+        "name": "How to Migrate from Session Buddy, Toby, or OneTab to Sauvenza",
+        "description": "Import your saved sessions, collections, and tab lists into Sauvenza in three steps.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Export your existing sessions",
+            "text": "Export a JSON or text backup file from Session Buddy, Toby, or OneTab, or copy any Markdown or plain URL list."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Open Sauvenza Vault Import / Export",
+            "text": "Press Ctrl+Shift+V (or Command+Shift+V on macOS), click Open Vault, and open the Import / Export tab."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Preview and Merge into Workspaces",
+            "text": "Drop your file or paste text. Sauvenza auto-detects Toby JSON, Session Buddy JSON/Text, OneTab lists, Markdown, and CSV, previews every window and tab group, and merges them cleanly."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://sauvenza.github.io/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Sauvenza send my open tabs or browsing history to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All open tabs, windows, tab groups, snapshots, and workspaces remain 100% on your device inside Chrome's local IndexedDB and chrome.storage.local. Sauvenza has zero analytics, zero telemetry, and no cloud account. Network requests occur only when activating or verifying an optional Pro license key."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Sauvenza preserve Chrome Tab Group names, colors, and collapsed state?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Sauvenza uses Chrome's native chrome.tabGroups API to capture and restore exact tab group titles, all 9 Chrome group colors, collapsed/expanded states, pinned tabs, and multi-window layouts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if my computer crashes or Chrome closes unexpectedly?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sauvenza continuously snapshots your session in the background. When Chrome reopens after a crash or forced restart, Sauvenza detects the preserved session and displays a one-click Restore banner inside the popup."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I import my existing sessions from Session Buddy, Toby, or OneTab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Sauvenza includes built-in parsers for Toby JSON, Session Buddy JSON and text exports, OneTab link lists, Markdown checklists, CSV files, and generic JSON or URL lists, with a safe preview and one-step undo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Sauvenza Free and Sauvenza Pro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sauvenza Free includes automatic crash snapshots (up to 15 snapshots), up to 3 named workspaces, full Chrome Tab Group restoration, duplicate tab cleanup, and instant keyboard search. Pro ($19/year or $39 lifetime one-time) unlocks unlimited snapshots and workspaces, pinned snapshots, in-place workspace switching, third-party imports, automatic backup downloads, custom retention rules, and opt-in Deep Tab Restore."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Sauvenza Home">
+        <img src="assets/favicon.svg" alt="" width="30" height="30" />
+        <span>Sauvenza</span>
+        <span class="brand-version">v1.2.1</span>
+      </a>
+      <button class="mobile-toggle" type="button" id="mobileToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+      <nav class="nav-links" id="primaryNav" aria-label="Primary Navigation">
+        <a href="index.html" class="active" aria-current="page">Overview &amp; Docs</a>
+        <a href="index.html#migration">Migration Guide</a>
+        <a href="index.html#comparison">Compare</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="developers.html">Developer</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-sm" href="https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam?utm_source=github_pages&amp;utm_medium=header" target="_blank" rel="noopener noreferrer">Add to Chrome</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Manifest V3 &bull; Local-First &bull; Zero Tracking</div>
+          <h1>Crash-Proof Tab &amp; Session Manager for Chrome</h1>
+          <p class="hero-lead">
+            Sauvenza quietly snapshots every open window, pinned tab, and Chrome Tab Group on your device—so a browser crash, accidental window close, or OS restart never wipes your work.
+          </p>
+          <div class="hero-cta-row">
+            <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam?utm_source=github_pages&amp;utm_medium=hero" target="_blank" rel="noopener noreferrer">Install from Chrome Web Store</a>
+            <a class="btn btn-secondary" href="#migration">Migrate from Session Buddy / Toby</a>
+          </div>
+          <div class="trust-strip">
+            <span class="trust-pill">100% Local IndexedDB Storage</span>
+            <span class="trust-pill">Native Tab Group Colors &amp; Collapse</span>
+            <span class="trust-pill">No Account Required</span>
+            <span class="trust-pill">Incognito Never Saved</span>
+          </div>
+        </div>
+
+        <!-- Interactive Shortcut & Session Preview -->
+        <aside class="preview-card" aria-label="Sauvenza Popup & Shortcut Preview">
+          <div class="preview-topbar">
+            <div class="preview-title">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Auto-Snapshots Active</span>
+            </div>
+            <div class="os-switch" role="group" aria-label="Operating System Shortcut Switcher">
+              <button type="button" class="os-btn active" data-os="win">Win / Linux</button>
+              <button type="button" class="os-btn" data-os="mac">macOS</button>
+            </div>
+          </div>
+
+          <div class="session-mock">
+            <div class="mock-row">
+              <div>
+                <span class="mock-group-tag group-blue">Research &amp; Docs</span>
+                <div class="mock-meta" style="margin-top:4px;">9 tabs &bull; Blue group &bull; Expanded</div>
+              </div>
+              <span class="mock-meta">Window 1</span>
+            </div>
+            <div class="mock-row">
+              <div>
+                <span class="mock-group-tag group-emerald">Sprint &amp; GitHub</span>
+                <div class="mock-meta" style="margin-top:4px;">6 tabs &bull; Green group &bull; Collapsed</div>
+              </div>
+              <span class="mock-meta">Window 1</span>
+            </div>
+            <div class="mock-row">
+              <div>
+                <span class="mock-group-tag group-purple">Reading Queue</span>
+                <div class="mock-meta" style="margin-top:4px;">4 tabs &bull; 2 pinned tabs preserved</div>
+              </div>
+              <span class="mock-meta">Window 2</span>
+            </div>
+          </div>
+
+          <div class="shortcut-bar">
+            <span>Open quick switcher anywhere:</span>
+            <kbd id="shortcutDisplay">Ctrl + Shift + V</kbd>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Core Architecture & Features -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Architecture &amp; Capabilities</div>
+          <h2>Built to Protect Heavy Tab Workflows Without Cloud Bloat</h2>
+          <p>
+            Designed for researchers, developers, writers, and multi-project knowledge workers who keep dozens of tabs open across multiple Chrome windows.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-icon">01</div>
+            <h3>Continuous Crash Recovery</h3>
+            <p>
+              Sauvenza automatically captures session snapshots whenever tabs change and before browser restarts. If Chrome crashes, a single click restores every window and tab cleanly.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">02</div>
+            <h3>Full Chrome Tab Group Fidelity</h3>
+            <p>
+              Unlike legacy extensions that flatten tabs into plain URL lists, Sauvenza preserves Tab Group titles, all 9 Chrome group colors, collapsed states, and pinned tabs.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">03</div>
+            <h3>Two-Layer Local Storage Safety</h3>
+            <p>
+              Primary data lives in local <code>IndexedDB</code>, backed by daily rolling copies in <code>chrome.storage.local</code> and startup integrity baselines that detect unexpected profile data loss.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">04</div>
+            <h3>Named Workspaces &amp; In-Place Switching</h3>
+            <p>
+              Save multi-window setups as named Workspaces with custom color tones. Pro users can switch workspaces in place—replacing the current window cleanly without tab clutter.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">05</div>
+            <h3>Instant Keyboard Search &amp; Deduplication</h3>
+            <p>
+              Press <kbd>Ctrl+Shift+V</kbd> (<kbd>Cmd+Shift+V</kbd> on Mac) to jump to any open tab across windows, search saved workspaces, copy tabs as Markdown, or close duplicate tabs in one click.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">06</div>
+            <h3>Opt-In Deep Tab Restore (Pro)</h3>
+            <p>
+              Optionally preserve unsaved typing in web inputs, textareas, and contenteditable editors locally—while strictly excluding passwords, payment/CVV fields, tokens, and incognito windows.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Guide & Keyboard Shortcuts -->
+    <section class="section" id="guide">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Quickstart Manual</div>
+          <h2>How Sauvenza Works Day-to-Day</h2>
+          <p>Everything runs locally inside Chrome Manifest V3 with zero account setup.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="doc-block">
+            <h2>1. Recovering After a Browser Crash</h2>
+            <ol>
+              <li>Reopen Google Chrome after an unexpected crash, power cut, or forced restart.</li>
+              <li>Click the Sauvenza icon or press <kbd>Ctrl+Shift+V</kbd> (<kbd>Command+Shift+V</kbd> on macOS).</li>
+              <li>Click <strong>Restore</strong> on the <em>Session preserved</em> banner at the top of the popup to reopen all windows, pinned tabs, and colored Tab Groups.</li>
+            </ol>
+            <div class="callout">
+              <strong>Privacy Guarantee:</strong> Incognito windows are never recorded or persisted in snapshots or rolling backups.
+            </div>
+          </div>
+
+          <div class="doc-block">
+            <h2>2. Managing Workspaces &amp; Retention</h2>
+            <ul>
+              <li><strong>Save Current Window:</strong> Click <em>Save window</em> in the popup to store all open tabs and groups as a reusable Workspace.</li>
+              <li><strong>Full Vault Dashboard:</strong> Click <em>Open vault</em> to inspect auto-snapshots, organize workspaces with calm color tones, and export backups in JSON, Markdown, Plain Text, or CSV.</li>
+              <li><strong>Safe Retention Cleanup:</strong> Configure automatic snapshot pruning (7, 30, 60, or 90 days) with a built-in <strong>Undo Cleanup</strong> buffer so active or pinned workspaces are never lost.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Migration Guide -->
+    <section class="section" id="migration">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Zero-Friction Switching</div>
+          <h2>Import Sessions from Session Buddy, Toby, or OneTab</h2>
+          <p>
+            Switching from an older Manifest V2 tab manager? Sauvenza includes native parsers that detect your export format automatically and preview every group before importing.
+          </p>
+        </div>
+
+        <div class="doc-block">
+          <h2>Supported Import Formats</h2>
+          <div class="grid-2" style="margin-top:14px;">
+            <div>
+              <h3>Session Buddy (JSON &amp; Text Exports)</h3>
+              <p>Export your collections or previous sessions from Session Buddy as JSON or formatted text, then drop the file into <strong>Vault &rarr; Import / Export</strong>. Sauvenza reconstructs windows and tab titles cleanly.</p>
+              <h3>Toby (JSON Collections)</h3>
+              <p>Export your Toby lists as JSON. Sauvenza maps each Toby list into an organized workspace or tab group structure with full preview support.</p>
+            </div>
+            <div>
+              <h3>OneTab, Markdown, CSV &amp; URL Lists</h3>
+              <p>Paste exported OneTab link lines, Markdown bulleted link lists, CSV exports, or raw URLs directly into the paste box. Every import supports <strong>Merge</strong> or <strong>Replace (with one-step Undo)</strong>.</p>
+              <p><a class="btn btn-secondary btn-sm" href="https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam?utm_source=github_pages&amp;utm_medium=migration" target="_blank" rel="noopener noreferrer">Get Sauvenza to Import Your Tabs &rarr;</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Matrix -->
+    <section class="section" id="comparison">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Architecture Comparison</div>
+          <h2>How Sauvenza Compares to Legacy Tab Managers</h2>
+          <p>A factual breakdown of storage architecture, Chrome Tab Group support, privacy posture, and licensing models.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th class="col-highlight">Sauvenza (v1.2.1)</th>
+                <th>Session Buddy</th>
+                <th>Toby</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Manifest V3 Native Architecture</strong></td>
+                <td class="col-highlight"><span class="check-yes">Yes</span> (Built from scratch for MV3)</td>
+                <td>Migrated legacy codebase</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><strong>Account Required to Use</strong></td>
+                <td class="col-highlight"><span class="check-yes">No account</span> (100% local)</td>
+                <td>No account</td>
+                <td><span class="check-no">Account required</span></td>
+              </tr>
+              <tr>
+                <td><strong>Native Chrome Tab Group Colors &amp; Collapse</strong></td>
+                <td class="col-highlight"><span class="check-yes">Full fidelity</span> (All 9 colors + state)</td>
+                <td>Limited / flattened in exports</td>
+                <td>Uses proprietary collections</td>
+              </tr>
+              <tr>
+                <td><strong>Two-Layer Local Backup + Integrity Check</strong></td>
+                <td class="col-highlight"><span class="check-yes">Yes</span> (IndexedDB + rolling storage)</td>
+                <td>Single local database</td>
+                <td>Cloud-dependent</td>
+              </tr>
+              <tr>
+                <td><strong>Analytics &amp; Telemetry</strong></td>
+                <td class="col-highlight"><span class="check-yes">Zero tracking</span></td>
+                <td>Standard diagnostics</td>
+                <td>Cloud telemetry</td>
+              </tr>
+              <tr>
+                <td><strong>Pricing Model</strong></td>
+                <td class="col-highlight">Free tier + $19/yr or <strong>$39 Lifetime</strong></td>
+                <td>Free</td>
+                <td>Recurring SaaS subscription</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Answers &amp; Transparency</div>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Does Sauvenza send my open tabs or browsing history to any server?</summary>
+            <div class="faq-answer">
+              No. All open tabs, windows, tab groups, snapshots, and workspaces remain 100% on your device inside Chrome's local <code>IndexedDB</code> and <code>chrome.storage.local</code>. Sauvenza contains zero analytics, zero telemetry, and no cloud account. Network requests happen only when you activate or re-verify an optional Pro license key. Read the full <a href="privacy.html">Privacy Policy</a> for technical details.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Why does the Chrome Web Store Privacy tab mention "Web history"?</summary>
+            <div class="faq-answer">
+              Chrome Web Store policy requires any extension that uses the <code>chrome.tabs</code> API to read open tab URLs and page titles for session saving to disclose the "Web history" category—even when that data never leaves your local computer. Sauvenza stores all tab data strictly on your device.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is included in Sauvenza Free vs. Sauvenza Pro?</summary>
+            <div class="faq-answer">
+              <strong>Sauvenza Free</strong> includes automatic crash snapshots (latest 15 snapshots), up to 3 named workspaces, full Chrome Tab Group color and collapse restoration, duplicate tab closing, Markdown copy, and instant keyboard search. <strong>Sauvenza Pro</strong> ($19/year or $39 one-time lifetime) removes snapshot and workspace limits and adds pinned snapshots, in-place workspace switching, third-party imports (Session Buddy, Toby, OneTab), automatic backup file downloads, custom retention periods, and opt-in Deep Tab Restore.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does Pro license activation work across browsers?</summary>
+            <div class="faq-answer">
+              Each Pro key activates on one browser profile at a time using a randomly generated local browser ID (<code>deviceId</code>). You can click <em>Remove key from this browser</em> in <strong>Settings &amp; Pro</strong> at any time to release the key and move it to another computer. Offline grace keeps Pro active for up to 30 days if you travel without internet access.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Sauvenza — Crash-Proof Tab &amp; Session Manager</div>
+          <p>Lightweight Manifest V3 tab &amp; session manager for Google Chrome. Auto-saves windows, pinned tabs, and Chrome Tab Groups locally with two-layer crash protection and zero tracking.</p>
+        </div>
+        <div>
+          <div class="footer-title">Documentation</div>
+          <ul class="footer-links">
+            <li><a href="index.html#features">Core Features &amp; Architecture</a></li>
+            <li><a href="index.html#migration">Import from Session Buddy &amp; Toby</a></li>
+            <li><a href="index.html#comparison">Tab Manager Comparison</a></li>
+            <li><a href="index.html#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Trust &amp; Legal</div>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy &amp; Permissions</a></li>
+            <li><a href="developers.html">Developer — Zeeshan Malik</a></li>
+            <li><a href="disclaimer.html">Disclaimer &amp; Trademarks</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam?utm_source=github_pages&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer">Chrome Web Store Listing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Sauvenza by Zeeshan Malik. All rights reserved.</span>
+        <span>Built for Google Chrome (Manifest V3) &bull; Local-First Storage</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var btn = document.getElementById("mobileToggle");
+      var nav = document.getElementById("primaryNav");
+      if (btn && nav) {
+        btn.addEventListener("click", function() {
+          var open = nav.classList.toggle("open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+    })();
+  </script>
+  <script>
+    (function() {
+      var buttons = document.querySelectorAll(".os-btn");
+      var display = document.getElementById("shortcutDisplay");
+      if (!buttons.length || !display) return;
+      buttons.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          buttons.forEach(function(b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          display.textContent = btn.dataset.os === "mac" ? "Command + Shift + V" : "Ctrl + Shift + V";
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

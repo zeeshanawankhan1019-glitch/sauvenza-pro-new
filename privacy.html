@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy &amp; Permissions — Sauvenza Chrome Extension</title>
+  <meta name="description" content="Official Privacy Policy for Sauvenza — Crash-Proof Tab &amp; Session Manager (v1.2.1). Learn how local IndexedDB storage works, why each Chrome permission is requested, and how optional Pro license verification protects your privacy." />
+  <meta name="author" content="Zeeshan Malik" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sauvenza.github.io/privacy.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy &amp; Permissions — Sauvenza" />
+  <meta property="og:description" content="Sauvenza stores all tabs, workspaces, and snapshots locally on your device with zero tracking, zero analytics, and strict Incognito exclusion." />
+  <meta property="og:url" content="https://sauvenza.github.io/privacy.html" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy — Sauvenza",
+    "url": "https://sauvenza.github.io/privacy.html",
+    "dateModified": "2026-11-24",
+    "description": "Privacy Policy and Chrome permission transparency disclosure for Sauvenza — Crash-Proof Tab & Session Manager.",
+    "author": {
+      "@type": "Person",
+      "name": "Zeeshan Malik",
+      "url": "https://sauvenza.github.io/developers.html"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Sauvenza Home">
+        <img src="assets/favicon.svg" alt="" width="30" height="30" />
+        <span>Sauvenza</span>
+        <span class="brand-version">v1.2.1</span>
+      </a>
+      <button class="mobile-toggle" type="button" id="mobileToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+      <nav class="nav-links" id="primaryNav" aria-label="Primary Navigation">
+        <a href="index.html">Overview &amp; Docs</a>
+        <a href="index.html#migration">Migration Guide</a>
+        <a href="index.html#comparison">Compare</a>
+        <a href="privacy.html" class="active" aria-current="page">Privacy Policy</a>
+        <a href="developers.html">Developer</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-sm" href="https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam?utm_source=github_pages&amp;utm_medium=header" target="_blank" rel="noopener noreferrer">Add to Chrome</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> <span>/</span> <span>Privacy Policy</span>
+      </div>
+      <h1>Privacy Policy &amp; Permission Transparency</h1>
+      <p>
+        Effective Date: November 24, 2026 &bull; Applies to <strong>Sauvenza — Crash-Proof Tab &amp; Session Manager</strong> (v1.2.1, Extension ID: <code>lnadpeimmaacgdhgekefdcbboafdhaam</code>).
+      </p>
+    </div>
+  </section>
+
+  <main id="main-content" class="doc-body">
+    <div class="container doc-stack">
+      <article class="doc-block">
+        <h2>1. Core Local-First Commitment</h2>
+        <p>
+          Sauvenza is engineered so that your browsing activity stays strictly under your physical control. All open tabs, window layouts, Chrome Tab Groups, automatic crash snapshots, and named workspaces are stored exclusively on your device inside Google Chrome's local <code>IndexedDB</code> (<code>SauvenzaDB</code>) and <code>chrome.storage.local</code>.
+        </p>
+        <ul>
+          <li><strong>Zero Telemetry or Analytics:</strong> Sauvenza includes no Google Analytics, no Mixpanel, no crash-reporting SDKs, and no behavioral tracking pixels.</li>
+          <li><strong>No Cloud Account Required:</strong> You never create an account or upload your tab history to use Sauvenza Free or Pro.</li>
+          <li><strong>Incognito Exclusion:</strong> Sauvenza explicitly ignores Incognito windows (<code>win.incognito === true</code>). Incognito tabs are never captured, snapshotted, or written to disk.</li>
+          <li><strong>No Data Selling or Sharing:</strong> We never sell, rent, trade, or transfer user data to third parties or data brokers.</li>
+        </ul>
+      </article>
+
+      <article class="doc-block">
+        <h2>2. Chrome Web Store Data Disclosures Explained</h2>
+        <p>
+          To comply with Google's Chrome Web Store User Data Policy, Sauvenza declares the data categories touched by its features. Here is exactly what each disclosure means in practice:
+        </p>
+        <div class="callout">
+          <strong>Web History (Local Device Only):</strong> Chrome classifies open tab URLs and page titles read via the <code>tabs</code> API as "Web history." Sauvenza reads this metadata solely to build local crash-recovery snapshots and workspaces inside your browser. Your URLs and tab titles are <strong>never transmitted</strong> to our servers.
+        </div>
+        <ul>
+          <li><strong>Personally Identifiable Information (Optional Pro License Only):</strong> If you choose to purchase or activate a Pro key, your email address is used only to deliver your license key or respond to your support request.</li>
+          <li><strong>Financial &amp; Payment Information (Optional Pro Checkout Only):</strong> When upgrading to Pro, card payments are processed externally on <a href="https://gumroad.com/privacy" target="_blank" rel="noopener noreferrer">Gumroad</a>, or you may submit a manual payment verification form (plan, payment method, amount, transaction reference, and reply email) to the developer. Sauvenza never stores credit card numbers inside the extension.</li>
+        </ul>
+      </article>
+
+      <article class="doc-block">
+        <h2>3. Technical Breakdown of Chrome Permissions</h2>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Permission / Host</th>
+                <th>Why Sauvenza Requests It</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>tabs</code></td>
+                <td>Reads tab URLs, titles, favicons, pinned states, and window positions to save and restore sessions locally.</td>
+              </tr>
+              <tr>
+                <td><code>tabGroups</code></td>
+                <td>Captures and restores Chrome Tab Group names, colors, and collapsed/expanded states.</td>
+              </tr>
+              <tr>
+                <td><code>storage</code> &amp; <code>unlimitedStorage</code></td>
+                <td>Stores snapshots, workspaces, settings, and daily rolling backups locally in <code>IndexedDB</code> and <code>chrome.storage.local</code> without hitting the 5 MB quota wall.</td>
+              </tr>
+              <tr>
+                <td><code>alarms</code></td>
+                <td>Schedules lightweight background auto-snapshots, daily license checks, and optional retention cleanup without keeping a persistent background page awake.</td>
+              </tr>
+              <tr>
+                <td><code>downloads</code></td>
+                <td>Saves user-initiated JSON, Markdown, Text, or CSV exports—and optional Pro automatic backup files—directly to your local Downloads folder.</td>
+              </tr>
+              <tr>
+                <td><code>scripting</code> &amp; Optional <code>http://*/*</code>, <code>https://*/*</code></td>
+                <td><strong>Off by default.</strong> Requested only if a Pro user explicitly opts into <em>Deep Tab Restore</em> to save unsaved text inputs locally. Never runs in Incognito and automatically skips password, hidden, file, payment/CVV, token, and <code>autocomplete="off"</code> fields.</td>
+              </tr>
+              <tr>
+                <td><code>https://script.google.com/*</code></td>
+                <td>Connects exclusively to the developer's license verification endpoint to activate, check, or release a Pro key.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="doc-block">
+        <h2>4. Minimal Network Communication (Pro Key Verification)</h2>
+        <p>
+          If you use Sauvenza Free without activating a license key, the extension makes <strong>zero network requests</strong> of its own.
+        </p>
+        <p>
+          If you activate a Pro license key, Sauvenza communicates with the developer's Google Apps Script license server once upon activation and approximately once every 24 hours thereafter. The request payload contains only:
+        </p>
+        <ul>
+          <li>Your normalized Pro license key (e.g., <code>ANNUAL-XXXX-XXXX-XXXX</code> or <code>LIFETIME-XXXX-XXXX-XXXX</code>)</li>
+          <li>A randomly generated, non-identifiable per-browser UUID (<code>deviceId</code>) used to enforce the one-browser-per-key limit</li>
+          <li>The installed Sauvenza version string (e.g., <code>1.2.1</code>)</li>
+        </ul>
+        <p>
+          No open tabs, URLs, workspace names, IP-based tracking profiles, or browsing histories are ever included in license verification requests.
+        </p>
+      </article>
+
+      <article class="doc-block">
+        <h2>5. Data Retention, Export &amp; Deletion Rights</h2>
+        <p>
+          Because all session data lives on your device, you have complete control over retention and deletion at all times:
+        </p>
+        <ul>
+          <li><strong>Export Anytime:</strong> Export all workspaces and snapshots as portable JSON, Markdown, Plain Text, or CSV from <strong>Vault &rarr; Import / Export</strong>.</li>
+          <li><strong>Automatic Retention Rules:</strong> Configure automatic cleanup intervals (7, 30, 60, or 90 days) in <strong>Vault &rarr; Storage &amp; Retention</strong>.</li>
+          <li><strong>Instant Local Wipe:</strong> Use <em>Reset all local data</em> in Storage &amp; Retention, or uninstall Sauvenza from <code>chrome://extensions</code> to permanently erase all local extension storage.</li>
+        </ul>
+        <p>
+          For privacy questions or license key assistance, contact developer <strong>Zeeshan Malik</strong> at <a href="mailto:zeeshanawankhan1019@gmail.com">zeeshanawankhan1019@gmail.com</a>.
+        </p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Sauvenza — Crash-Proof Tab &amp; Session Manager</div>
+          <p>Lightweight Manifest V3 tab &amp; session manager for Google Chrome. Auto-saves windows, pinned tabs, and Chrome Tab Groups locally with two-layer crash protection and zero tracking.</p>
+        </div>
+        <div>
+          <div class="footer-title">Documentation</div>
+          <ul class="footer-links">
+            <li><a href="index.html#features">Core Features &amp; Architecture</a></li>
+            <li><a href="index.html#migration">Import from Session Buddy &amp; Toby</a></li>
+            <li><a href="index.html#comparison">Tab Manager Comparison</a></li>
+            <li><a href="index.html#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Trust &amp; Legal</div>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy &amp; Permissions</a></li>
+            <li><a href="developers.html">Developer — Zeeshan Malik</a></li>
+            <li><a href="disclaimer.html">Disclaimer &amp; Trademarks</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam?utm_source=github_pages&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer">Chrome Web Store Listing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Sauvenza by Zeeshan Malik. All rights reserved.</span>
+        <span>Built for Google Chrome (Manifest V3) &bull; Local-First Storage</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var btn = document.getElementById("mobileToggle");
+      var nav = document.getElementById("primaryNav");
+      if (btn && nav) {
+        btn.addEventListener("click", function() {
+          var open = nav.classList.toggle("open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

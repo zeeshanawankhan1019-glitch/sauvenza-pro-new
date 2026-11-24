@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Explicitly welcome AI Search & Generative Engine Crawlers (GEO)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://sauvenza.github.io/sitemap.xml
